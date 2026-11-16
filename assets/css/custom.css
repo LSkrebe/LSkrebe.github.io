@@ -1,0 +1,373 @@
+/* =========================================================
+   LD9 – custom.css (overrides main.css)
+   Theme: electronics / engineering (teal + amber)
+   ========================================================= */
+
+:root {
+  --default-font: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --heading-font: "IBM Plex Serif", Georgia, serif;
+  --nav-font: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --default-color: #1a2332;
+  --heading-color: #0b3d4a;
+  --accent-color: #0d7377;
+  --accent-strong: #c45c26;
+  --surface-color: #f7fafb;
+  --contrast-color: #ffffff;
+  --nav-color: #1a2332;
+  --nav-hover-color: #c45c26;
+}
+
+/* ---------- 2. Typography ---------- */
+body {
+  font-family: var(--default-font);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  color: var(--default-color);
+}
+
+h1, h2, h3, h4, h5, h6,
+.section-title h2,
+.sitename,
+.hero h2 {
+  font-family: var(--heading-font);
+  color: var(--heading-color);
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: 2.6rem; font-weight: 700; }
+h2 { font-size: 2rem; font-weight: 700; border-bottom: 3px solid var(--accent-color); padding-bottom: 0.35rem; display: inline-block; }
+h3 { font-size: 1.45rem; font-weight: 600; color: #0d7377; }
+h4 { font-size: 1.2rem; font-weight: 600; color: #1a2332; }
+h5 { font-size: 1rem; font-weight: 500; color: var(--accent-strong); text-transform: uppercase; letter-spacing: 0.06em; }
+h6 { font-size: 0.95rem; font-weight: 600; color: #4a5568; }
+
+.section-title h2 {
+  border-bottom: 3px solid var(--accent-strong);
+}
+
+p {
+  font-family: var(--default-font);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.fst-italic {
+  border-left: 4px solid var(--accent-color);
+  padding-left: 1rem;
+  color: #3d4f5f;
+}
+
+/* ---------- 3. Buttons + links ---------- */
+.btn,
+button,
+.php-email-form button,
+.hero-actions a {
+  background-color: var(--accent-color) !important;
+  border: 2px solid var(--accent-color) !important;
+  color: #fff !important;
+  border-radius: 999px !important;
+  padding: 0.65rem 1.4rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.03em;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(13, 115, 119, 0.25);
+}
+
+.btn:hover,
+button:hover,
+.php-email-form button:hover,
+.hero-actions a:hover {
+  background-color: var(--accent-strong) !important;
+  border-color: var(--accent-strong) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(196, 92, 38, 0.3);
+}
+
+.btn:active,
+button:active,
+.php-email-form button:active,
+.hero-actions a:active {
+  background-color: #8f3f14 !important;
+  border-color: #8f3f14 !important;
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-strong);
+}
+
+.navmenu a,
+.social-links a,
+.portfolio-info a,
+.header a {
+  text-decoration: none;
+}
+
+/* ---------- 4. Section spacing + content blocks ---------- */
+#about.about,
+#resume.resume,
+#portfolio.portfolio {
+  padding-top: 5.5rem !important;
+  padding-bottom: 5.5rem !important;
+}
+
+#about .content,
+#resume .resume-item,
+#portfolio .portfolio-item {
+  background: #ffffff;
+  border: 1px solid #d5e3e6;
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(11, 61, 74, 0.08);
+}
+
+#about .content {
+  padding: 1.75rem 1.75rem 1.25rem;
+}
+
+#about .col-lg-4 img {
+  border-radius: 16px;
+  border: 3px solid #0d7377;
+  box-shadow: 0 8px 20px rgba(13, 115, 119, 0.2);
+}
+
+#resume .resume-item {
+  padding: 1.25rem 1.4rem;
+  margin-bottom: 1.35rem;
+}
+
+#resume .resume-title {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#portfolio .portfolio-item {
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+#portfolio .portfolio-item img {
+  border-radius: 16px 16px 0 0;
+  width: 100%;
+  height: auto;
+}
+
+#portfolio .portfolio-info {
+  position: relative !important;
+  opacity: 1 !important;
+  inset: auto !important;
+  padding: 1rem 1.1rem 1.2rem !important;
+  background: #0b3d4a !important;
+  color: #fff !important;
+  border-radius: 0 0 16px 16px;
+}
+
+#portfolio .portfolio-info h4,
+#portfolio .portfolio-info p {
+  color: #fff !important;
+}
+
+#portfolio .portfolio-info a {
+  color: #ffd8a8 !important;
+}
+
+/* ---------- 5. Extra components (≠ 2–4) ---------- */
+/* Progress bars */
+.skills .progress {
+  background: #e6eef0;
+  border-radius: 12px;
+  height: 1.35rem;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  margin-bottom: 1.4rem;
+}
+
+.skills .progress .progress-bar {
+  background: linear-gradient(90deg, #0d7377, #c45c26) !important;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px rgba(13, 115, 119, 0.2);
+}
+
+.skills .skill {
+  font-weight: 600;
+  color: #0b3d4a;
+  margin-bottom: 0.35rem;
+}
+
+/* Scroll-top button */
+#scroll-top {
+  background: #c45c26 !important;
+  border: 2px solid #8f3f14 !important;
+  border-radius: 12px !important;
+  width: 44px !important;
+  height: 44px !important;
+  box-shadow: 0 6px 16px rgba(196, 92, 38, 0.35);
+  right: 18px !important;
+  bottom: 18px !important;
+}
+
+#scroll-top:hover {
+  background: #0d7377 !important;
+  border-color: #0b3d4a !important;
+}
+
+/* Header / nav accent ring */
+.header .navmenu a {
+  border-radius: 50%;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.header .navmenu a:hover,
+.header .navmenu a.active {
+  background: rgba(13, 115, 119, 0.12);
+  box-shadow: 0 0 0 2px rgba(13, 115, 119, 0.25);
+}
+
+/* ---------- Papildoma: lists ---------- */
+#services ul {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: none;
+}
+
+#services ul > li {
+  position: relative;
+  padding: 0.45rem 0.75rem 0.45rem 2.1rem;
+  margin-bottom: 0.45rem;
+  background: #eef6f6;
+  border-radius: 8px;
+  border-left: 4px solid #0d7377;
+}
+
+#services ul > li::before {
+  content: "▸";
+  position: absolute;
+  left: 0.7rem;
+  color: #c45c26;
+  font-weight: 700;
+}
+
+#services ol {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: etapai;
+}
+
+#services ol > li {
+  counter-increment: etapai;
+  position: relative;
+  padding: 0.55rem 0.75rem 0.55rem 2.8rem;
+  margin-bottom: 0.55rem;
+  background: #fff7f0;
+  border-radius: 8px;
+  border: 1px solid #f0d2bf;
+}
+
+#services ol > li::before {
+  content: counter(etapai);
+  position: absolute;
+  left: 0.55rem;
+  top: 0.45rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: #c45c26;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.6rem;
+  text-align: center;
+}
+
+/* Nested list – distinct from parent */
+#services ul ul {
+  margin-top: 0.55rem;
+  margin-left: 0.25rem;
+  padding-left: 0;
+}
+
+#services ul ul > li {
+  background: #ffffff;
+  border-left: 4px dashed #c45c26;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #4a5568;
+}
+
+#services ul ul > li::before {
+  content: "–";
+  color: #0d7377;
+}
+
+/* ---------- Papildoma: table ---------- */
+#services table.table {
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(11, 61, 74, 0.1);
+}
+
+#services table.table thead th {
+  background: #0b3d4a !important;
+  color: #ffffff !important;
+  font-family: var(--heading-font);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.92rem;
+  border: none !important;
+  padding: 1rem !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+#services table.table tbody td {
+  padding: 0.95rem 1rem !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  border-color: #d7e4e7 !important;
+}
+
+#services table.table tbody tr:nth-child(even) {
+  background-color: #eef6f6;
+}
+
+#services table.table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+#services table.table tbody tr:hover {
+  background-color: #ffe8d6 !important;
+}
+
+/* Media / section polish */
+#media video,
+#media iframe {
+  border-radius: 14px;
+  border: 2px solid #0d7377;
+  box-shadow: 0 8px 20px rgba(13, 115, 119, 0.15);
+}
+
+.footer {
+  border-top: 4px solid var(--accent-color);
+}
+
+.section.light-background {
+  background: #f0f6f7 !important;
+}
