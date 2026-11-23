@@ -371,3 +371,309 @@ a:hover {
 .section.light-background {
   background: #f0f6f7 !important;
 }
+
+/* =========================================================
+   LD10 – Kompetencijų pažanga + animacijos
+   ========================================================= */
+
+#services.services {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(120deg, #0d7377, #0b3d4a, #c45c26, #0d7377);
+  background-size: 300% 300%;
+  animation: servicesGradient 10s ease infinite;
+}
+
+#services.services::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.88);
+  pointer-events: none;
+}
+
+#services.services > .container {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes servicesGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.about-shapes-wrap {
+  position: relative;
+}
+
+.css-shape {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.shape-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #0d7377;
+  top: 10px;
+  right: 30px;
+  animation: spinFloat 8s linear infinite;
+}
+
+.shape-triangle {
+  width: 0;
+  height: 0;
+  border-left: 28px solid transparent;
+  border-right: 28px solid transparent;
+  border-bottom: 48px solid #c45c26;
+  background: transparent;
+  top: 120px;
+  left: 12px;
+  animation: scalePulse 3.5s ease-in-out infinite;
+}
+
+.shape-square {
+  width: 42px;
+  height: 42px;
+  background: #1a2332;
+  border-radius: 8px;
+  bottom: 20px;
+  right: 80px;
+  animation: driftAround 6s ease-in-out infinite;
+}
+
+@keyframes spinFloat {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(180deg); }
+  100% { transform: translateY(0) rotate(360deg); }
+}
+
+@keyframes scalePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+
+@keyframes driftAround {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(16px, -10px); }
+  50% { transform: translate(0, -20px); }
+  75% { transform: translate(-14px, -8px); }
+  100% { transform: translate(0, 0); }
+}
+
+#about .content,
+#about .col-lg-4 {
+  position: relative;
+  z-index: 1;
+}
+
+.skills-progress {
+  background: #f3f8f9;
+}
+
+.xp-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.xp-card {
+  background: #fff;
+  border: 1px solid #d5e3e6;
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 8px 20px rgba(11, 61, 74, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.xp-label {
+  color: #4a5568;
+  font-size: 0.92rem;
+}
+
+.xp-value {
+  color: #0b3d4a;
+  font-size: 1.45rem;
+  font-family: var(--heading-font);
+}
+
+.xp-progress-wrap {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #d5e3e6;
+}
+
+.xp-progress-bar {
+  width: 100%;
+  height: 16px;
+  background: #e2ecee;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.xp-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #0d7377, #c45c26);
+  border-radius: 999px;
+}
+
+.xp-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.xp-stat {
+  background: #0b3d4a;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  font-size: 0.95rem;
+}
+
+.skill-kanban {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.kanban-column {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1rem;
+  border: 1px solid #d5e3e6;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.kanban-column h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+  border-bottom: none;
+  display: block;
+}
+
+.kanban-column.planuojama { border-top: 5px solid #6b7280; }
+.kanban-column.mokomasi { border-top: 5px solid #c45c26; }
+.kanban-column.atlikta { border-top: 5px solid #0d7377; }
+
+.skill-card {
+  background: #f7fafb;
+  border: 1px solid #d7e4e7;
+  border-radius: 12px;
+  padding: 0.85rem 0.95rem;
+  box-shadow: 0 4px 12px rgba(11, 61, 74, 0.06);
+}
+
+.skill-card h4 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  border-bottom: none;
+  display: block;
+}
+
+.skill-status,
+.skill-xp {
+  margin: 0.15rem 0;
+  font-size: 0.92rem;
+  color: #4a5568;
+}
+
+.skill-xp {
+  font-weight: 700;
+  color: #0d7377;
+}
+
+@media (max-width: 991px) {
+  .xp-summary,
+  .skill-kanban {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   LD11 – Formos stiliai
+   ========================================================= */
+
+.cv-contact-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #0b3d4a;
+}
+
+.cv-contact-form .form-group {
+  margin-bottom: 0.35rem;
+}
+
+.cv-contact-form .form-control,
+.cv-contact-form .form-range {
+  border: 1px solid #c5d5d9;
+  border-radius: 10px;
+}
+
+.cv-contact-form .form-control.is-invalid {
+  border-color: #d64545 !important;
+  box-shadow: 0 0 0 0.15rem rgba(214, 69, 69, 0.2);
+}
+
+.cv-contact-form .field-error {
+  display: block;
+  min-height: 1.1rem;
+  color: #d64545;
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
+}
+
+.cv-contact-form .form-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.cv-contact-form button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.btn-clear {
+  background: #4a5568 !important;
+  border-color: #4a5568 !important;
+}
+
+.btn-clear:hover {
+  background: #2d3748 !important;
+  border-color: #2d3748 !important;
+}
+
+.form-result,
+.form-average {
+  margin-top: 1.25rem;
+  background: #fff;
+  border: 1px solid #d5e3e6;
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 8px 20px rgba(11, 61, 74, 0.08);
+}
+
+.form-average {
+  font-weight: 700;
+  color: #0b3d4a;
+  border-left: 5px solid #c45c26;
+}

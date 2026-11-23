@@ -51,6 +51,7 @@
         <li><a href="#about"><i class="bi bi-person navicon"></i><span>Apie</span></a></li>
         <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i><span>Patirtis</span></a></li>
         <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span>Atlikti darbai</span></a></li>
+        <li><a href="#skills-progress"><i class="bi bi-kanban navicon"></i><span>Kompetencijos</span></a></li>
         <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i><span>Paslaugos</span></a></li>
         <li><a href="#contact"><i class="bi bi-envelope navicon"></i><span>Kontaktai</span></a></li>
       </ul>
@@ -88,7 +89,10 @@
         <h2>Apie</h2>
       </div><!-- End Section Title -->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="container about-shapes-wrap" data-aos="fade-up" data-aos-delay="100">
+        <div class="css-shape shape-circle" aria-hidden="true"></div>
+        <div class="css-shape shape-triangle" aria-hidden="true"></div>
+        <div class="css-shape shape-square" aria-hidden="true"></div>
 
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-4">
@@ -495,6 +499,101 @@
       </div>
     </section><!-- /Media Section -->
 
+    <!-- LD10 Kompetencijų pažanga -->
+    <section id="skills-progress" class="skills-progress section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Kompetencijų pažanga</h2>
+        <p>Įgūdžių kanban lenta, XP taškai, lygis ir statistika (HTML/CSS modulis).</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="xp-summary">
+          <div class="xp-card">
+            <span class="xp-label">Bendras XP</span>
+            <strong class="xp-value">340 XP</strong>
+          </div>
+          <div class="xp-card">
+            <span class="xp-label">Lygis</span>
+            <strong class="xp-value">4</strong>
+          </div>
+          <div class="xp-card">
+            <span class="xp-label">Rangas</span>
+            <strong class="xp-value">Profesionalas</strong>
+          </div>
+        </div>
+
+        <div class="xp-progress-wrap">
+          <div class="d-flex justify-content-between mb-2">
+            <span>Progresas iki kito lygio</span>
+            <span>Maksimalus lygis pasiektas (100%)</span>
+          </div>
+          <div class="xp-progress-bar">
+            <div class="xp-progress-fill" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="xp-stats">
+          <div class="xp-stat"><i class="bi bi-collection"></i> Įgūdžiai: <strong>8</strong></div>
+          <div class="xp-stat"><i class="bi bi-check2-circle"></i> Atlikta: <strong>4</strong></div>
+          <div class="xp-stat"><i class="bi bi-percent"></i> Procentas: <strong>50%</strong></div>
+        </div>
+
+        <div class="skill-kanban">
+          <div class="kanban-column planuojama">
+            <h3>Planuojama</h3>
+            <article class="skill-card">
+              <h4>PCB projektavimas</h4>
+              <p class="skill-status">Būsena: Planuojama</p>
+              <p class="skill-xp">XP: 40</p>
+            </article>
+          </div>
+
+          <div class="kanban-column mokomasi">
+            <h3>Mokomasi</h3>
+            <article class="skill-card">
+              <h4>MATLAB skriptai</h4>
+              <p class="skill-status">Būsena: Mokomasi</p>
+              <p class="skill-xp">XP: 60</p>
+            </article>
+            <article class="skill-card">
+              <h4>Signalų analizė</h4>
+              <p class="skill-status">Būsena: Mokomasi</p>
+              <p class="skill-xp">XP: 45</p>
+            </article>
+            <article class="skill-card">
+              <h4>HTML / CSS</h4>
+              <p class="skill-status">Būsena: Mokomasi</p>
+              <p class="skill-xp">XP: 40</p>
+            </article>
+          </div>
+
+          <div class="kanban-column atlikta">
+            <h3>Atlikta</h3>
+            <article class="skill-card">
+              <h4>Git / GitHub</h4>
+              <p class="skill-status">Būsena: Atlikta</p>
+              <p class="skill-xp">XP: 30</p>
+            </article>
+            <article class="skill-card">
+              <h4>MATLAB pagrindai</h4>
+              <p class="skill-status">Būsena: Atlikta</p>
+              <p class="skill-xp">XP: 50</p>
+            </article>
+            <article class="skill-card">
+              <h4>2D / 3D grafikai</h4>
+              <p class="skill-status">Būsena: Atlikta</p>
+              <p class="skill-xp">XP: 40</p>
+            </article>
+            <article class="skill-card">
+              <h4>Matavimų praktika</h4>
+              <p class="skill-status">Būsena: Atlikta</p>
+              <p class="skill-xp">XP: 35</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact section">
 
@@ -535,35 +634,65 @@
           </div>
 
           <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Jūsų vardas" required="">
+            <form id="cv-contact-form" class="cv-contact-form" novalidate data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-3">
+                <div class="col-md-6 form-group">
+                  <label for="vardas">Vardas</label>
+                  <input type="text" id="vardas" name="vardas" class="form-control" required>
+                  <small class="field-error" data-error-for="vardas"></small>
                 </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Jūsų el. paštas" required="">
+                <div class="col-md-6 form-group">
+                  <label for="pavarde">Pavardė</label>
+                  <input type="text" id="pavarde" name="pavarde" class="form-control" required>
+                  <small class="field-error" data-error-for="pavarde"></small>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="email">El. paštas</label>
+                  <input type="email" id="email" name="email" class="form-control" required>
+                  <small class="field-error" data-error-for="email"></small>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="telefonas">Telefono numeris</label>
+                  <input type="tel" id="telefonas" name="telefonas" class="form-control" placeholder="+370 6xx xxxxx" required>
+                  <small class="field-error" data-error-for="telefonas"></small>
+                </div>
+                <div class="col-md-12 form-group">
+                  <label for="adresas">Adresas</label>
+                  <input type="text" id="adresas" name="adresas" class="form-control" required>
+                  <small class="field-error" data-error-for="adresas"></small>
                 </div>
 
                 <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Tema" required="">
+                  <p class="mb-1 fw-semibold">Vertinimo klausimai (1–10)</p>
+                </div>
+                <div class="col-md-4 form-group">
+                  <label for="vertinimas1">Svetainės aiškumas</label>
+                  <input type="range" id="vertinimas1" name="vertinimas1" class="form-range" min="1" max="10" value="5" required>
+                  <output for="vertinimas1" id="vertinimas1-out">5</output>
+                  <small class="field-error" data-error-for="vertinimas1"></small>
+                </div>
+                <div class="col-md-4 form-group">
+                  <label for="vertinimas2">Turinio naudingumas</label>
+                  <input type="range" id="vertinimas2" name="vertinimas2" class="form-range" min="1" max="10" value="5" required>
+                  <output for="vertinimas2" id="vertinimas2-out">5</output>
+                  <small class="field-error" data-error-for="vertinimas2"></small>
+                </div>
+                <div class="col-md-4 form-group">
+                  <label for="vertinimas3">Dizaino kokybė</label>
+                  <input type="range" id="vertinimas3" name="vertinimas3" class="form-range" min="1" max="10" value="5" required>
+                  <output for="vertinimas3" id="vertinimas3-out">5</output>
+                  <small class="field-error" data-error-for="vertinimas3"></small>
                 </div>
 
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Žinutė" required=""></textarea>
+                <div class="col-md-12 text-center form-actions">
+                  <button type="submit" id="siusti-btn" disabled>Siųsti</button>
+                  <button type="button" id="isvalyti-btn" class="btn-clear">Išvalyti</button>
                 </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Siunčiama</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Žinutė išsiųsta. Ačiū!</div>
-
-                  <button type="submit">Siųsti žinutę</button>
-                </div>
-
               </div>
             </form>
+
+            <div id="form-result" class="form-result d-none" aria-live="polite"></div>
+            <div id="form-average" class="form-average d-none" aria-live="polite"></div>
           </div><!-- End Contact Form -->
 
         </div>
@@ -617,6 +746,8 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <!-- LD11 custom JS -->
+  <script src="assets/js/custom.js"></script>
 
 </body>
 
