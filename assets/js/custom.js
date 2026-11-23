@@ -35,42 +35,48 @@
     return true;
   }
 
-  function validateField(name) {
+  function getError(name) {
     const value = (fields[name].value || '').trim();
 
     if (name === 'vardas' || name === 'pavarde') {
-      if (!value) return setError(name, 'Laukas privalomas.');
-      if (!lettersOnly.test(value)) return setError(name, 'Leidžiamos tik raidės.');
-      return setError(name, '');
+      if (!value) return 'Laukas privalomas.';
+      if (!lettersOnly.test(value)) return 'Leidžiamos tik raidės.';
+      return '';
     }
 
     if (name === 'email') {
-      if (!value) return setError(name, 'Laukas privalomas.');
-      if (!emailPattern.test(value)) return setError(name, 'Neteisingas el. pašto formatas.');
-      return setError(name, '');
+      if (!value) return 'Laukas privalomas.';
+      if (!emailPattern.test(value)) return 'Neteisingas el. pašto formatas.';
+      return '';
     }
 
     if (name === 'adresas') {
-      if (!value) return setError(name, 'Laukas privalomas.');
-      return setError(name, '');
+      if (!value) return 'Laukas privalomas.';
+      return '';
     }
 
     if (name === 'telefonas') {
       const digits = value.replace(/\D/g, '');
-      if (!value) return setError(name, 'Laukas privalomas.');
+      if (!value) return 'Laukas privalomas.';
       if (digits.length !== 11 || !digits.startsWith('3706')) {
-        return setError(name, 'Formatas: +370 6xx xxxxx');
+        return 'Formatas: +370 6xx xxxxx';
       }
-      return setError(name, '');
+      return '';
     }
 
     if (name.indexOf('vertinimas') === 0) {
       const n = Number(fields[name].value);
-      if (!n || n < 1 || n > 10) return setError(name, 'Reikšmė turi būti nuo 1 iki 10.');
-      return setError(name, '');
+      if (!n || n < 1 || n > 10) return 'Reikšmė turi būti nuo 1 iki 10.';
+      return '';
     }
 
-    return true;
+    return '';
+  }
+
+  function validateField(name, show) {
+    const message = getError(name);
+    if (show) setError(name, message);
+    return message === '';
   }
 
   function formatPhone(raw) {
@@ -96,58 +102,35 @@
 
   function formIsValid() {
     return Object.keys(fields).every(function (name) {
-      return validateField(name);
+      return validateField(name, false);
     });
   }
 
   function updateSubmitState() {
-    const filled =
-      fields.vardas.value.trim() &&
-      fields.pavarde.value.trim() &&
-      fields.email.value.trim() &&
-      fields.telefonas.value.trim() &&
-      fields.adresas.value.trim() &&
-      fields.vertinimas1.value &&
-      fields.vertinimas2.value &&
-      fields.vertinimas3.value;
-
-    const noErrors = Object.keys(fields).every(function (name) {
-      const err = form.querySelector('[data-error-for="' + name + '"]');
-      return err && err.textContent === '' && !fields[name].classList.contains('is-invalid');
-    });
-
-    // Keep button disabled unless filled AND currently valid (after user interaction)
-    const touched = form.dataset.touched === '1';
-    siustiBtn.disabled = !(filled && (!touched || noErrors));
-    if (touched) {
-      siustiBtn.disabled = !formIsValid();
-    } else {
-      siustiBtn.disabled = !filled;
-    }
+    siustiBtn.disabled = !formIsValid();
   }
 
   Object.keys(fields).forEach(function (name) {
     const el = fields[name];
     el.addEventListener('input', function () {
-      form.dataset.touched = '1';
       if (name === 'telefonas') {
-        const start = el.selectionStart;
         el.value = formatPhone(el.value);
       }
       if (name.indexOf('vertinimas') === 0) updateRangeOutputs();
-      validateField(name);
+      validateField(name, true);
       updateSubmitState();
     });
     el.addEventListener('blur', function () {
-      form.dataset.touched = '1';
-      validateField(name);
+      validateField(name, true);
       updateSubmitState();
     });
   });
 
   form.addEventListener('submit', function (event) {
     event.preventDefault();
-    form.dataset.touched = '1';
+    Object.keys(fields).forEach(function (name) {
+      validateField(name, true);
+    });
     if (!formIsValid()) {
       updateSubmitState();
       return;
@@ -187,11 +170,8 @@
 
   isvalytiBtn.addEventListener('click', function () {
     form.reset();
-    form.dataset.touched = '';
     Object.keys(fields).forEach(function (name) {
-      fields[name].classList.remove('is-invalid');
-      const err = form.querySelector('[data-error-for="' + name + '"]');
-      if (err) err.textContent = '';
+      setError(name, '');
     });
     fields.vertinimas1.value = 5;
     fields.vertinimas2.value = 5;
@@ -205,5 +185,5 @@
   });
 
   updateRangeOutputs();
-  updateSubmitState();
+  siustiBtn.disabled = true;
 })();
